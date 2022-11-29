@@ -10,12 +10,13 @@ package fm.backend;
  * @author Pink
  */
 public class FmBackend {
+    private connection conn;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new startPage().setVisible(true);
+        new program().setVisible(true);
     }
     
 }

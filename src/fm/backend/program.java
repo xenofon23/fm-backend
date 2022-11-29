@@ -5,16 +5,25 @@
  */
 package fm.backend;
 
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Pink
  */
 public class program extends javax.swing.JFrame {
 
-    /**
-     * Creates new form program
-     */
-    public program() {
+    
+   public static  connection conn;
+      public static  Statement Statement;
+ 
+   
+    public program() { 
+        conn=new connection();
+        Statement=conn.ConnectDB();
         initComponents();
     }
 
@@ -286,6 +295,16 @@ public class program extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(68, 43, 176));
 
         jButton2.setText("broadcast");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,6 +364,11 @@ public class program extends javax.swing.JFrame {
         );
 
         jButton3.setText("employees");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,7 +384,7 @@ public class program extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Id employee");
+        jLabel14.setText("Id broadcast");
 
         jLabel15.setText("name");
 
@@ -433,6 +457,11 @@ public class program extends javax.swing.JFrame {
         );
 
         jButton4.setText("ratings");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -480,8 +509,7 @@ public class program extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel18)
@@ -515,7 +543,11 @@ public class program extends javax.swing.JFrame {
         );
 
         jButton5.setText("roles");
-        jButton5.setActionCommand("roles");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -584,6 +616,11 @@ public class program extends javax.swing.JFrame {
         );
 
         jButton6.setText("studio");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -691,6 +728,7 @@ public class program extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -745,6 +783,94 @@ public class program extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       String id=jTextField1.getText();
+       String title=jTextField2.getText();
+       String duration =jTextField3.getText();
+       String sql=String.format("select \"FM\".insert_broadcast('%s','%s','%s');",id,title,duration);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+         String id=jTextField4.getText();
+       String id_broadcast=jTextField5.getText();
+       String name =jTextField6.getText();
+       String lastname =jTextField6.getText();
+       String id_role =jTextField17.getText();
+       String sql=String.format("select \"FM\".insert_employe('%s','%s','%s','%s','%s');",id,id_broadcast,name,lastname,id_role);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+       String id=jTextField7.getText();
+       String id_broadcast=jTextField8.getText();
+       String rating =jTextField9.getText();
+       String comment =jTextField18.getText();
+     
+       String sql=String.format("select \"FM\".insert_rating('%s','%s',%s,'%s');",id_broadcast,id,rating,comment);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        String id=jTextField10.getText();
+       String id_broadcast=jTextField11.getText();
+       String name =jTextField12.getText();
+     
+       String sql=String.format("select \"FM\".insert_roles('%s','%s','%s');",id_broadcast,id,name);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        String id=jTextField13.getText();
+       String id_broadcast=jTextField14.getText();
+       String name =jTextField15.getText();
+     
+       String sql=String.format("select \"FM\".insert_studio('%s','%s','%s');",id_broadcast,id,name);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton6MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -775,6 +901,7 @@ public class program extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new program().setVisible(true);
             }
         });

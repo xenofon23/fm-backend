@@ -5,6 +5,10 @@
  */
 package fm.backend;
 
+import static fm.backend.program.Statement;
+import static fm.backend.program.conn;
+import java.sql.Statement;
+
 /**
  *
  * @author Pink
@@ -14,7 +18,12 @@ public class update extends javax.swing.JFrame {
     /**
      * Creates new form update
      */
+     
+   public static  connection conn;
+      public static  Statement Statement;
     public update() {
+        conn=new connection();
+        Statement=conn.ConnectDB();
         initComponents();
     }
 

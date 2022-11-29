@@ -19,8 +19,10 @@ public class connection {
 	private static final String DB_USERNAME = "it185225";
 	private static final String DB_PASSWORD = "Paok1234";
  
-	public static void main(String args[]){
-		Connection conn = null;
+		
+        public  Statement ConnectDB(){
+        Connection conn = null;
+        Statement statement=null;
 		try{
 			//Register the JDBC driver
 			Class.forName(DB_DRIVER);
@@ -28,16 +30,28 @@ public class connection {
 			//Open the connection
 			conn = DriverManager.
 			getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
- 
+                             
 			if(conn != null){
+                            statement=conn.createStatement();
+//                            String sql="select \"FM\".insert_broadcast('a','DDD','KOST');";
+//                            Statement.execute(sql);
 			   System.out.println("Successfully connected.");
+                           return statement;
 			}else{
-			   System.out.println("Failed to connect.");
+                           System.out.println("Failed to connect.");
+                           return statement;
 			}
 		}catch(Exception e){
 			e.printStackTrace();
+                        
 		}
-	}	
-       
+               return statement;
+        }
+
+//  public static void main(String[] args) {
+//      connection  conn=new connection();
+//      conn.ConnectDB();
+//    }
+        
     }
 
