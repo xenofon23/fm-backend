@@ -369,6 +369,11 @@ public class program extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -808,7 +813,7 @@ public class program extends javax.swing.JFrame {
          String id=jTextField4.getText();
        String id_broadcast=jTextField5.getText();
        String name =jTextField6.getText();
-       String lastname =jTextField6.getText();
+       String lastname =jTextField16.getText();
        String id_role =jTextField17.getText();
        String sql=String.format("select \"FM\".insert_employe('%s','%s','%s','%s','%s');",id,id_broadcast,name,lastname,id_role);
        System.out.println(sql);
@@ -870,6 +875,10 @@ public class program extends javax.swing.JFrame {
            Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
        }
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
