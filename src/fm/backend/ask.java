@@ -5,6 +5,14 @@
  */
 package fm.backend;
 
+import static fm.backend.program.Statement;
+import static fm.backend.program.conn;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Pink
@@ -14,7 +22,12 @@ public class ask extends javax.swing.JFrame {
     /**
      * Creates new form ask
      */
+         public static  connection conn;
+      public static  Statement Statement;
+
     public ask() {
+        conn=new connection();
+        Statement=conn.ConnectDB();
         initComponents();
     }
 
@@ -282,11 +295,26 @@ public class ask extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(68, 43, 176));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("BROADCAST");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
-        jButton7.setText("jButton7");
+        jButton7.setText("EMPLOYEES");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
-        jButton8.setText("jButton8");
+        jButton8.setText("rating");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
 
         jButton9.setText("jButton8");
 
@@ -296,11 +324,22 @@ public class ask extends javax.swing.JFrame {
 
         jButton12.setText("jButton8");
 
-        jButton13.setText("jButton8");
+        jButton13.setText("studio");
+        jButton13.setToolTipText("");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
 
         jButton14.setText("jButton8");
 
-        jButton15.setText("jButton8");
+        jButton15.setText("roles");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton15MouseClicked(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -312,10 +351,10 @@ public class ask extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -327,15 +366,15 @@ public class ask extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton9)
                     .addComponent(jButton15))
                 .addGap(75, 75, 75))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,9 +386,9 @@ public class ask extends javax.swing.JFrame {
                     .addComponent(jButton8)
                     .addComponent(jButton13)
                     .addComponent(jButton15))
-                .addGap(91, 91, 91)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton12)
                     .addComponent(jButton11)
@@ -408,6 +447,146 @@ public class ask extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String table="broadcast";
+       String sql=String.format("select * from \"FM\".%s;",table);
+       System.out.println(sql);
+       
+       try {
+            
+           
+          ResultSet rs=Statement.executeQuery(sql);
+           displayBroad(rs);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        String table="employees";
+       String sql=String.format("select * from \"FM\".%s;",table);
+       System.out.println(sql);
+       
+       try {
+            
+           
+          ResultSet rs=Statement.executeQuery(sql);
+           displayemployyes(rs);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+         String table="ratings";
+       String sql=String.format("select * from \"FM\".%s;",table);
+       System.out.println(sql);
+       
+       try {
+            
+           
+          ResultSet rs=Statement.executeQuery(sql);
+           displayrating(rs);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+        String table="studio";
+       String sql=String.format("select * from \"FM\".%s;",table);
+       System.out.println(sql);
+       
+       try {
+            
+           
+          ResultSet rs=Statement.executeQuery(sql);
+           displaystudio(rs);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+        // TODO add your handling code here:
+        String table="roles";
+       String sql=String.format("select * from \"FM\".%s;",table);
+       System.out.println(sql);
+       
+       try {
+            
+           
+          ResultSet rs=Statement.executeQuery(sql);
+           displayroles(rs);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton15MouseClicked
+    public void displayroles(ResultSet rs) throws SQLException {
+    String data="ID"+"\t"+"IDBROAD"+"\t"+"name"+"\n";
+        while (rs.next()) {
+            data=data+rs.getString("code_broadcast") + "\t"
+                    + rs.getString("id_role") + "\t"
+                    + rs.getString("name") + "\n"
+                    ;      
+        }
+        jTextArea1.setText(data); 
+    }
+    public void displaystudio(ResultSet rs) throws SQLException {
+    String data="ID"+"\t"+"IDBROAD"+"\t"+"name"+"\n";
+        while (rs.next()) {
+            data=data+rs.getString("id_studio") + "\t"
+                    + rs.getString("code_broadcast") + "\t"
+                    + rs.getString("name") + "\n"
+                    ;      
+        }
+        jTextArea1.setText(data); 
+    }
+    public void displayrating(ResultSet rs) throws SQLException {
+    String data="ID"+"\t"+"IDBROAD"+"\t"+"rating"+ "\t"+"comm"+"\n";
+        while (rs.next()) {
+            data=data+rs.getString("id_rating") + "\t"
+                    + rs.getString("code_broadcast") + "\t"
+                    + rs.getString("rating") + "\t"
+                    + rs.getString("comm") + "\n"
+                    ;      
+        }
+        jTextArea1.setText(data); 
+    }
+    public void displayBroad(ResultSet rs) throws SQLException {
+    String data="ID"+ "\t"+"TITLE"+"\t"+" DURATION"+"\n";
+        while (rs.next()) {
+            data=data+rs.getString("code") + "\t"
+                    + rs.getString("title") + "\t"
+                    + rs.getString("duration")+"\n";      
+        }
+        jTextArea1.setText(data); 
+    }
+
+public void displayemployyes(ResultSet rs) throws SQLException {
+    String data="ID"+"\t"+"IDBROAD"+"\t"+"NAME"+ "\t"+"LAST NAME"+"\t"+" ID ROLE"+"\n";
+        while (rs.next()) {
+            data=data+rs.getString("code_employe") + "\t"
+                    + rs.getString("code_broadcast") + "\t"
+                    + rs.getString("name") + "\t"
+                    + rs.getString("lastname") + "\t"
+                    + rs.getString("id_role")+"\n";      
+        }
+        jTextArea1.setText(data); 
+    }
     /**
      * @param args the command line arguments
      */
