@@ -537,6 +537,7 @@
                     <Property name="text" type="java.lang.String" value="broadcast"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
                   </Events>
                 </Component>
@@ -590,6 +591,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="employees"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField4">
                   <Events>
@@ -644,6 +648,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ratings"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton4MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField7">
                   <Events>
@@ -699,6 +706,7 @@
                     <Property name="text" type="java.lang.String" value="roles"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton5MouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
                   </Events>
                 </Component>
@@ -755,6 +763,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="studio"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton6MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField13">
                   <Events>
