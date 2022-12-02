@@ -5,6 +5,11 @@
  */
 package fm.backend;
 
+import static fm.backend.update.Statement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Pink
@@ -291,6 +296,11 @@ public class delete extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(68, 43, 176));
 
         jButton2.setText("broadcast");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -326,6 +336,11 @@ public class delete extends javax.swing.JFrame {
         );
 
         jButton3.setText("employees");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -363,6 +378,11 @@ public class delete extends javax.swing.JFrame {
         );
 
         jButton4.setText("ratings");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -400,6 +420,11 @@ public class delete extends javax.swing.JFrame {
         );
 
         jButton5.setText("roles");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -442,6 +467,11 @@ public class delete extends javax.swing.JFrame {
         );
 
         jButton6.setText("studio");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -578,6 +608,70 @@ public class delete extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        String id=jTextField3.getText();
+       String sql=String.format("select \"FM\".delete_broadcast('%s');",id);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        String id=jTextField4.getText();
+       String sql=String.format("select \"FM\".delete_employees('%s');",id);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+String id=jTextField7.getText();
+       String sql=String.format("select \"FM\".delete_ratings('%s');",id);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+         String id=jTextField10.getText();
+       String sql=String.format("select \"FM\".delete_roles('%s');",id);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        String id=jTextField13.getText();
+       String sql=String.format("select \"FM\".delete_studio('%s');",id);
+       System.out.println(sql);
+       try {
+           Statement.execute(sql);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
