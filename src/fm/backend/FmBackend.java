@@ -16,7 +16,7 @@ public class FmBackend {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new program().setVisible(true);
+        new startPage().setVisible(true);
     }
     
 }
