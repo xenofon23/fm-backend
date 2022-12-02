@@ -555,8 +555,7 @@ public class ask extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        String table="broadcast";
-       String sql=String.format("select * from \"FM\".%s;",table);
+       String sql="select *  from\"FM\".getBroadcast();";
        System.out.println(sql);
        
        try {
@@ -573,8 +572,7 @@ public class ask extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        String table="employees";
-       String sql=String.format("select * from \"FM\".%s;",table);
+       String sql="select * from \"FM\".getemployees();";
        System.out.println(sql);
        
        try {
@@ -590,9 +588,8 @@ public class ask extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        // TODO add your handling code here:
-         String table="ratings";
-       String sql=String.format("select * from \"FM\".%s;",table);
+      
+       String sql="select * from \"FM\".getrating()";
        System.out.println(sql);
        
        try {
@@ -608,9 +605,8 @@ public class ask extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        // TODO add your handling code here:
-        String table="studio";
-       String sql=String.format("select * from \"FM\".%s;",table);
+
+       String sql="select * from \"FM\".getstudio();";
        System.out.println(sql);
        
        try {
@@ -626,9 +622,8 @@ public class ask extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13MouseClicked
 
     private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
-        // TODO add your handling code here:
-        String table="roles";
-       String sql=String.format("select * from \"FM\".%s;",table);
+
+       String sql="select * from \"FM\".roles();";
        System.out.println(sql);
        
        try {
