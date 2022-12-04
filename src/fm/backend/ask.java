@@ -78,6 +78,7 @@ public class ask extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -519,11 +520,21 @@ public class ask extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jButton2.setText("log file");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(858, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(87, 87, 87))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -535,7 +546,10 @@ public class ask extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(307, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(216, 216, 216))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -781,7 +795,37 @@ public class ask extends javax.swing.JFrame {
         new delete().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
-     public void displayRoleEmployees(ResultSet rs) throws SQLException {
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+         String sql="SELECT * FROM \"FM\".boadcast_log_file;";
+       System.out.println(sql);
+       
+       try {
+            
+           
+          ResultSet rs=Statement.executeQuery(sql);
+           displayLogFile(rs);
+                   
+                   
+                   } catch (SQLException ex) {
+           Logger.getLogger(program.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }//GEN-LAST:event_jButton2MouseClicked
+     public void displayLogFile(ResultSet rs) throws SQLException {
+     String data="title"+"\t"+"operation"+"\t"+"oper time"+"\t"+"\t"+"id broad"+"\t"+"duration"+"\n";
+        while (rs.next()) {
+            data=data+rs.getString("title") + "\t"
+                    +rs.getString("operation") + "\t"
+                    +rs.getString("oper_time") + "\t"
+                    +rs.getString("id_broadcast") + "\t"
+        
+                    + rs.getString("duration") + "\n"
+                    ;      
+        }
+        jTextArea1.setText(data); 
+    }  
+    
+    public void displayRoleEmployees(ResultSet rs) throws SQLException {
     String data="NAME"+"\t"+"LAST NAME"+"\t"+"ROLE NAME"+"\n";
         while (rs.next()) {
             data=data+rs.getString("name") + "\t"
@@ -906,6 +950,7 @@ public void displayemployyes(ResultSet rs) throws SQLException {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
